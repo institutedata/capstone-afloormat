@@ -1,35 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+/* Small screens */
+@media only screen and (max-width: 600px) {
+    
+}
+
+/* Medium screens */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    /* Add styles for medium screens here */
+}
+
+/* Large screens */
+@media only screen and (min-width: 1025px) {
+    /* Add styles for large screens here */
+}
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Popins', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Corrected the font-family typo */
 }
+
 .toolbar {
     display: flex;
-    width: 100%;
-    background-color: #fa709a; /* Solid background color for the toolbar */
     justify-content: space-around;
     align-items: center;
-    padding: 10px 0; /* Adjust padding to your preference */
-    box-sizing: border-box; /* Ensures padding does not add to the width */
+    width: 100%;
+    background-color: #fa709a;
+    padding: 10px 0;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0; /* Stick PlanningBar to the top */
+    z-index: 100; /* Ensure it's above other content */
 }
 
 .toolbar-button {
     flex-grow: 1;
-    margin: 0 5px; /* Small margins between buttons for visual separation */
-    background-color: transparent; /* Buttons are transparent */
-    color: white; /* Text color contrasts with the toolbar background */
+    margin: 0 5px;
+    background-color: transparent;
+    color: white;
     padding: 10px;
     text-align: center;
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    transition: background-color 0.3s;
 }
 
 .toolbar-button:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Button background on hover */
+    background-color: rgba(255, 255, 255, 0.2);
 }
-
 
 /* For a little padding around the toolbar */
 .toolbar-button:first-child {
@@ -71,6 +90,13 @@ h2 {
     font-size: 2em;
     color: #fff;
     text-align: center;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #fff;
+    text-align: center;
+
 }
 
 .input-box {
@@ -204,3 +230,177 @@ button {
         inset 200px 200px 0 0 #784ba8,
         inset 300px 300px 0 0 #2b86c5;
 }
+
+.ImageContainer {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.image-wrapper {
+    width: 232px;
+    max-width: 100%;
+    height: 225px;
+    border: 2px solid black; /* Moved border style here */
+    margin-bottom: 20px;
+}
+
+.rounded-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px; /* Adjust this value to control the roundness */
+}
+
+/* Home container styles */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Content area styles */
+.content-area {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.wrappergallery {
+    width: 75%; /* Adjust to use the full available width */
+    max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+    height: 60%; /* Allow it to expand as needed */
+    overflow:scroll; /* Hide overflow to prevent scrolling outside the gallery */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; /* Adjust padding as needed */
+    margin: auto;
+    border: 2px solid black; /* Add border for visual separation */
+    border-color: #fa709a;
+}
+
+
+/* Image container styles */
+.image-container {
+    width: 232px;
+    max-width: 100%;
+    height: 225px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+/* Featured image styles */
+.featured-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px; /* Adjust for rounded corners */
+}
+
+/* Button wrapper styles */
+.button-wrapper {
+    padding: 10px 20px; /* Adjusted for the button, moved from inline styles */
+}
+
+/* Navigation button styles */
+.navigation-button {
+    padding: 10px 20px;
+    /* Add more button styles as needed */
+}
+
+/* Navigation container styles */
+.navigation-container {
+    cursor: pointer;
+    padding: 20px;
+    border: 2px solid black;
+    text-align: center;
+    margin-bottom: 20px; /* For spacing between items */
+}
+
+/* Statistics widget styles */
+.statistics-widget {
+    width: 100%;
+    max-width: 232px;
+    height: 225px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    margin-bottom: 20px; /* For spacing */
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 images per row */
+    gap: 10px; /* Adjust gap between images */
+    width: 100%; /* Ensure it uses the full width of the wrapper */
+    max-height: calc(100vh - 100px); /* Adjust based on your header/footer size */
+    overflow-y: auto; /* Allow vertical scrolling within the grid */
+}
+
+
+
+.photo-album-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.content-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+.photo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto; /* Adjust if you want a fixed height */
+}
+.photo-item img {
+    width: 100%; /* Ensures the image fills the cell */
+    height: auto; /* Keeps the aspect ratio intact */
+    object-fit: cover; /* Adjust as needed to cover the cell or contain the whole image */
+}
+
+
+.upload-button {
+    margin-top: 10px;
+}
+
+/* Sticky toolbars */
+.planning-bar, .management-bar {
+    position: sticky;
+    top: 0; /* PlanningBar sticks to the top */
+    bottom: 0; /* ManagementBar sticks to the bottom */
+    z-index: 10;
+}
+
+.management-bar {
+    position: sticky;
+    bottom: 0; /* Stick to the bottom of the viewport */
+    z-index: 1000; /* Ensure it's above other content */
+    width: 100%; /* Span the full width of the viewport */
+}
+
