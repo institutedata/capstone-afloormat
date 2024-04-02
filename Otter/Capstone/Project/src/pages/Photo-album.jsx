@@ -15,7 +15,7 @@ const PhotoAlbum = () => {
         { id: 8, src: 'https://picsum.photos/200/300?random=8', caption: 'Photo 8', labels: [] },
         { id: 9, src: 'https://picsum.photos/200/300?random=9', caption: 'Photo 9', labels: [] },
         { id: 10, src: 'https://picsum.photos/200/300?random=10', caption: 'Photo 10', labels: [] },
-        // Additional photos can be initialized here
+        // Additional photos can be placed here
     ]);
 
     // Function to update photo's caption or add a new label

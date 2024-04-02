@@ -2,7 +2,7 @@ import React from 'react';
 
 const PlanningBar = () => {
     return (
-        <div className="toolbar">
+        <div className="toolbar toolbar-top"> {/* Added class for top positioning */}
             <button className="toolbar-button">Home</button>
             <button className="toolbar-button">Upcoming</button>
             <button className="toolbar-button">Goals</button>
@@ -13,16 +13,15 @@ const PlanningBar = () => {
 
 const ManagementBar = () => {
     return (
-        <div className="toolbar">
+        <div className="toolbar toolbar-bottom"> {/* Added class for bottom positioning */}
             <button className="toolbar-button">My Profile</button>
-            <button className="toolbar-button">Partner Profile</button>
+            <button className="toolbar-button">Partner</button>
             <button className="toolbar-button">Leaderboard</button>
             <button className="toolbar-button">Settings</button>
         </div>
     );
 }
 
-// Export both components for use across the app.
 export { PlanningBar, ManagementBar };
 
 
