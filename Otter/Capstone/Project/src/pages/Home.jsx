@@ -56,7 +56,7 @@ const Home = () => {
           }}
         >
           <p>Statistics Widget</p>
-          {/* Place your Pie Chart or any other widget inside here */}
+          {/* Place Pie Chart or any other widget inside here */}
         </div>
 
         {/* Games */}

@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 
-const PhotoItem = ({ photo, updatePhoto }) => {
+const PhotoItem = ({ photo, updatePhoto, onImageClick }) => {
     const [editCaption, setEditCaption] = useState(photo.caption);
     const [newLabel, setNewLabel] = useState('');
 
     const handleCaptionChange = (e) => {
+        e.stopPropagation(); // Stop the click event from bubbling up
         setEditCaption(e.target.value);
     };
 
-    const handleCaptionBlur = () => {
+    const handleCaptionBlur = (e) => {
+        e.stopPropagation(); // Stop the click event from bubbling up
         updatePhoto(photo.id, editCaption, 'caption');
     };
 
     const handleNewLabelKeyDown = (e) => {
+        e.stopPropagation(); // Stop the click event from bubbling up
         if (e.key === 'Enter' && newLabel.trim()) {
             updatePhoto(photo.id, newLabel, 'label');
             setNewLabel(''); // Reset input after adding
@@ -21,30 +24,27 @@ const PhotoItem = ({ photo, updatePhoto }) => {
 
     return (
         <div className="photo-item">
-            <img src={photo.src} alt={editCaption} />
+            <img src={photo.src} alt={editCaption} onClick={() => onImageClick()} />
+            <p>{photo.caption}</p> {/* Display Caption */}
             <div className="input-box-gallery">
                 <input 
-                    className="input-box input"
                     value={editCaption}
                     onChange={handleCaptionChange}
                     onBlur={handleCaptionBlur}
-                    placeholder="Caption"
+                    placeholder="Edit Caption"
+                    onClick={e => e.stopPropagation()} // Stop the click event from bubbling up
                 />
-                <label> {/* No dynamic label text was given, consider adding if needed */}
-                    Caption
-                </label>
             </div>
             <div className="input-box-gallery">
                 <input 
-                    className="input-box input"
                     value={newLabel}
-                    onChange={(e) => setNewLabel(e.target.value)}
+                    onChange={(e) => {e.stopPropagation(); setNewLabel(e.target.value);}}
                     onKeyDown={handleNewLabelKeyDown}
                     placeholder="Add label"
+                    onClick={e => e.stopPropagation()} // Stop the click event from bubbling up
                 />
-                {/* Assuming label styling is not dynamically needed */}
             </div>
-            <div className="labels-container">
+            <div className="labels-container" onClick={e => e.stopPropagation()}>
                 {photo.labels.map((label, index) => (
                     <span key={index} className="photo-label">{label}</span>
                 ))}
