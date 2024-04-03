@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+@media (max-width: 768px) {
+    .photo-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Smaller min width for smaller devices */
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Even smaller for very small screens */
+        gap: 10px; /* Smaller gap */
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,11 +23,12 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
+    width: 100vw;
     background-color: #fa709a;
     padding: 1% 0;
     box-sizing: border-box;
     z-index: 100; /* Ensure it's above other content */
+    position: sticky;
 }
 
 /* Specific to the PlanningBar at the top */
@@ -26,7 +40,7 @@
 /* Specific to the ManagementBar at the bottom */
 .toolbar-bottom {
     position: sticky;
-    bottom: 0; /* Stick ManagementBar to the bottom */
+     /* Stick ManagementBar to the bottom */
 }
 
 /* Adjustments for toolbar buttons */
@@ -227,17 +241,6 @@ button {
         inset 200px 200px 0 0 #784ba8,
         inset 300px 300px 0 0 #2b86c5;
 }
-
-.ImageContainer {
-    flex: 1;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-}
-
 .image-wrapper {
     width: 232px;
     max-width: 100%;
@@ -272,7 +275,6 @@ button {
 }
 
 .wrappergallery {
-    width: 75%; /* Adjust to use the full available width */
     max-width: 100%; /* Ensure it doesn't exceed the viewport width */
     height: 60%; /* Allow it to expand as needed */
     overflow:scroll; /* Hide overflow to prevent scrolling outside the gallery */
@@ -291,21 +293,22 @@ button {
     gap: 5%;
 }
 
-/* Image container styles */
+/* Controls the image of your partner */
 .image-container {
     width: 232px;
     max-width: 100%;
     height: 225px;
     border: 2px solid black;
+    border-radius: 20%;
     margin-bottom: 20px;
 }
 
-/* Featured image styles */
+/* controls the couple image styles */
 .featured-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 20px; /* Adjust for rounded corners */
+    border-radius: 20%; /* Adjust for rounded corners */
 }
 
 /* Button wrapper styles */
@@ -350,9 +353,11 @@ button {
 }
 
 .photo-album-container {
-    display:block;
+    display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100px; /* Use the full height of the viewport */
+    justify-content: space-between; /* Space out the content */
+    overflow-y: auto; /* Allows scrolling within the container */
 }
 
 .content-container {
@@ -372,6 +377,13 @@ button {
     width: 100%;
 }
 
+.photo-gallery-wrapper {
+    flex: 1;
+    overflow-y: auto; /* Scrollable, only if needed */
+    padding: 20px; /* Optional padding */
+}
+
+
 .photo-item {
     display: flex;
     flex-direction: column;
@@ -390,15 +402,13 @@ button {
     margin-top: 10px;
 }
 
-@media (max-width: 768px) {
-    .photo-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Smaller min width for smaller devices */
-    }
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-@media (max-width: 480px) {
-    .photo-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Even smaller for very small screens */
-        gap: 10px; /* Smaller gap */
-    }
+.content-area {
+    flex: 1;
+    overflow: auto; /* Allows scrolling within this section if content overflows */
 }

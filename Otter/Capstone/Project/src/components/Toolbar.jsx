@@ -1,5 +1,7 @@
-import React from 'react';
+//Important parts
+import * as React from 'react';
 
+// Planning Bar
 const PlanningBar = () => {
     return (
         <div className="toolbar toolbar-top"> {/* Added class for top positioning */}
@@ -11,6 +13,7 @@ const PlanningBar = () => {
     );
 };
 
+// Management Bar
 const ManagementBar = () => {
     return (
         <div className="toolbar toolbar-bottom"> {/* Added class for bottom positioning */}

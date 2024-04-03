@@ -10,10 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-navigation/bottom-tabs": "^6.5.20",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-native-vector-icons": "^10.0.3",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "yet-another-react-lightbox": "^3.17.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

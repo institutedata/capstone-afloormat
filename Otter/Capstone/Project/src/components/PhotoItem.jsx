@@ -1,4 +1,3 @@
-// components/PhotoItem.jsx
 import React, { useState } from 'react';
 
 const PhotoItem = ({ photo, updatePhoto }) => {
@@ -23,13 +22,29 @@ const PhotoItem = ({ photo, updatePhoto }) => {
     return (
         <div className="photo-item">
             <img src={photo.src} alt={editCaption} />
-            <input value={editCaption} onChange={handleCaptionChange} onBlur={handleCaptionBlur} />
-            <input 
-                value={newLabel}
-                onChange={(e) => setNewLabel(e.target.value)}
-                onKeyDown={handleNewLabelKeyDown}
-                placeholder="Add label"
-            />
+            {/* Use the existing .input-box class for styling */}
+            <div className="input-box">
+                <input 
+                    className="input-box input" // Ensure this class aligns with your CSS for input styling
+                    value={editCaption}
+                    onChange={handleCaptionChange}
+                    onBlur={handleCaptionBlur}
+                    placeholder="Caption"
+                />
+                <label> {/* No dynamic label text was given, consider adding if needed */}
+                    Caption
+                </label>
+            </div>
+            <div className="input-box">
+                <input 
+                    className="input-box input"
+                    value={newLabel}
+                    onChange={(e) => setNewLabel(e.target.value)}
+                    onKeyDown={handleNewLabelKeyDown}
+                    placeholder="Add label"
+                />
+                {/* Assuming label styling is not dynamically needed */}
+            </div>
             <div className="labels-container">
                 {photo.labels.map((label, index) => (
                     <span key={index} className="photo-label">{label}</span>

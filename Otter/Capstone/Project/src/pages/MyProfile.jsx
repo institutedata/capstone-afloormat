@@ -1,56 +1,33 @@
-import React, { useState } from 'react';
+import React from "react";
 import { PlanningBar, ManagementBar } from "../components/Toolbar.jsx";
 
 const MyProfile = () => {
-    const [name, setName] = useState('');
-    const [age, setAge] = useState('');
-    const [location, setLocation] = useState('');
-
-    const handleNameChange = (e) => {
-        setName(e.target.value);
-    };
-
-    const handleAgeChange = (e) => {
-        setAge(e.target.value);
-    };
-
-    const handleLocationChange = (e) => {
-        setLocation(e.target.value);
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Perform any necessary actions with the entered data
-        console.log('Name:', name);
-        console.log('Age:', age);
-        console.log('Location:', location);
-    };
-
     return (
-        <><><div>
+        <div className="app-container"> {/* Use "app-container" for flex styling */}
             <PlanningBar />
-        </div><div>
-                <h1>My Profile</h1>
-                <form onSubmit={handleSubmit}>
-                    <label>
-                        Name:
-                        <input type="text" value={name} onChange={handleNameChange} />
-                    </label>
-                    <br />
-                    <label>
-                        Age:
-                        <input type="number" value={age} onChange={handleAgeChange} />
-                    </label>
-                    <br />
-                    <label>
-                        Location:
-                        <input type="text" value={location} onChange={handleLocationChange} />
-                    </label>
-                    <br />
-                    <button type="submit">Save</button>
-                </form>
-            </div></><div><ManagementBar></ManagementBar></div></>
+            {/* About Me Section */}
+            <div className="wrapper content-area"> {/* Use "wrapper" for styling, "content-area" for flex growth */}
+                <h2>About Me</h2>
+                <div className="input-box">
+                    <input type="text" placeholder="1" id="input1"/>
+                    <label htmlFor="input1">Input 1</label>
+                </div>
+                <div className="input-box">
+                    <input type="text" placeholder="2" id="input2"/>
+                    <label htmlFor="input2">Input 2</label>
+                </div>
+                <div className="input-box">
+                    <input type="text" placeholder="3" id="input3"/>
+                    <label htmlFor="input3">Input 3</label>
+                </div>
+                {/* Add more input fields as needed */}
+            </div>
+            <ManagementBar />
+        </div>
     );
 };
 
 export default MyProfile;
+
+
+//Turn Image Container item into variable so users can update it.
