@@ -35,9 +35,9 @@ const PhotoAlbum = () => {
     };
 
     return (
-        <div className="photo-album-container">
+        <div className="photo-album-container"> {/* not doing anything */}
             <PlanningBar />
-            <h2>Our Photo Album</h2>
+            <h2>Photo Album</h2>
             <h3>Browse and manage photos shared between you and "x"</h3> {/* Replace "x" with partner's name variable */}
             <PhotoGallery photos={photos} updatePhoto={updatePhoto} />
             <UploadButton onUpload={() => {/* Implement upload functionality */}} />

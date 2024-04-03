@@ -22,10 +22,9 @@ const PhotoItem = ({ photo, updatePhoto }) => {
     return (
         <div className="photo-item">
             <img src={photo.src} alt={editCaption} />
-            {/* Use the existing .input-box class for styling */}
-            <div className="input-box">
+            <div className="input-box-gallery">
                 <input 
-                    className="input-box input" // Ensure this class aligns with your CSS for input styling
+                    className="input-box input"
                     value={editCaption}
                     onChange={handleCaptionChange}
                     onBlur={handleCaptionBlur}
@@ -35,7 +34,7 @@ const PhotoItem = ({ photo, updatePhoto }) => {
                     Caption
                 </label>
             </div>
-            <div className="input-box">
+            <div className="input-box-gallery">
                 <input 
                     className="input-box input"
                     value={newLabel}
