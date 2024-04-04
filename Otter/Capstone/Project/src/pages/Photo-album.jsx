@@ -19,13 +19,33 @@ const PhotoAlbum = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedLabel, setSelectedLabel] = useState('');
 
+    const handleUpload = (file) => {
+        const formData = new FormData();
+        formData.append('photo', file);
+
+        fetch('http://localhost:3000/photos/upload', { // Make sure this endpoint matches your backend route for photo upload
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(uploadedPhoto => {
+            const newPhoto = {
+                ...uploadedPhoto,
+                id: photos.length + 1, // Assign a new ID; adjust based on your backend response
+                labels: [],
+                caption: uploadedPhoto.caption || `Uploaded Photo ${photos.length + 1}`
+            };
+            setPhotos(currentPhotos => [...currentPhotos, newPhoto]);
+        })
+        .catch(error => console.error('Error uploading photo:', error));
+    };
+
     const updatePhoto = (id, newValue, field) => {
         setPhotos(photos.map(photo => {
             if (photo.id === id) {
                 if (field === 'caption') {
                     return { ...photo, caption: newValue };
                 } else if (field === 'label') {
-                    // Ensure no duplicate labels are added
                     const labelsSet = new Set([...photo.labels, newValue]);
                     return { ...photo, labels: Array.from(labelsSet) };
                 }
@@ -47,7 +67,6 @@ const PhotoAlbum = () => {
             <PlanningBar />
             <h2>Photo Album</h2>
             <h3>Browse and manage photos shared between you and "x"</h3>
-            
             <div className="search-filter-container" style={{ display: 'flex', justifyContent: 'space-between', padding: '20px', alignItems: 'center' }}>
                 <input
                     type="text"
@@ -66,9 +85,8 @@ const PhotoAlbum = () => {
                     ))}
                 </select>
             </div>
-
             <PhotoGallery photos={filteredPhotos} updatePhoto={updatePhoto} />
-            <UploadButton onUpload={() => {/* Implement upload functionality here */}} />
+            <UploadButton onUpload={handleUpload} />
             <ManagementBar />
         </div>
     );
