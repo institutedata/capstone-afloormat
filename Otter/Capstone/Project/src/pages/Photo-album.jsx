@@ -30,7 +30,7 @@ const PhotoAlbum = () => {
                 ...currentPhotos,
                 ...data.map(photo => ({
                     id: photo._id, // Use MongoDB _id as the unique id
-                    src: `http://localhost:3000${photo.src}`, // Constructs the full URL
+                    src: `http://localhost:3000${photo.src}`, // Construct the full URL
                     caption: photo.caption,
                     labels: photo.labels,
                 }))
