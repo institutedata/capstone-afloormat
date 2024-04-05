@@ -22,8 +22,9 @@ app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Use Routes
-app.use('/api/users', userRoutes); // Mount user routes with '/api/users' prefix for clarity
-app.use('/api/photos', photoRoutes); // Mount photo routes with '/api/photos' prefix for clarity
+app.use('/users', userRoutes); // Mount user routes with '/users' prefix
+app.use('/photos', photoRoutes); // Mount photo routes with '/photos' prefix
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve uploaded photos
 
 // Handling undefined routes
 app.use((req, res, next) => {

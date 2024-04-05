@@ -2,12 +2,12 @@ const Photo = require('../models/Photo');
 
 exports.uploadPhoto = async (req, res) => {
   try {
-    // Assuming the file's path is stored in req.file.path and other data in req.body
+    // file's path is stored in req.file.path and other data in req.body
     const newPhoto = await Photo.create({
       src: req.file.path,
       caption: req.body.caption,
-      labels: req.body.labels.split(','), // Assuming labels are sent as a comma-separated string
-      userId: req.body.userId, // If you're associating photos with users
+      labels: req.body.labels.split(','), // comma-separated string
+      userId: req.body.userId, // For when associating photos with users
     });
     res.status(201).json(newPhoto);
   } catch (error) {

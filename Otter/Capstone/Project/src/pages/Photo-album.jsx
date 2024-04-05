@@ -30,7 +30,7 @@ const PhotoAlbum = () => {
                 ...currentPhotos,
                 ...data.map(photo => ({
                     id: photo._id, // Use MongoDB _id as the unique id
-                    src: `http://localhost:3000${photo.src}`, // Construct the full URL
+                    src: `http://localhost:3000${photo.src}`, // Constructs the full URL
                     caption: photo.caption,
                     labels: photo.labels,
                 }))
@@ -86,7 +86,7 @@ const PhotoAlbum = () => {
         <div className="photo-album-container">
             <PlanningBar />
             <h2>Photo Album</h2>
-            <h3>Browse and manage photos shared between you and "x"</h3>
+            <h3>Browse and manage photos some of your special moments</h3>
             <div className="search-filter-container" style={{ display: 'flex', justifyContent: 'space-between', padding: '20px', alignItems: 'center' }}>
                 <input
                     type="text"

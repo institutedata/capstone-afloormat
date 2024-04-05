@@ -20,7 +20,7 @@ const MyProfile = () => {
                     <input type="text" placeholder="3" id="input3"/>
                     <label htmlFor="input3">Input 3</label>
                 </div>
-                {/* Add more input fields as needed */}
+                {/* Add more input fields here */}
             </div>
             <ManagementBar />
         </div>
