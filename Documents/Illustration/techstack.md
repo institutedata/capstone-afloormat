@@ -2,7 +2,7 @@
 
 <br>
 
-::: mermaid
+```mermaid
 
 graph TD
     Client[Client: React.js]
@@ -25,3 +25,4 @@ graph TD
     style Database fill:#9f9,stroke:#333,stroke-width:2px, color:#000
     style Storage fill:#ddf,stroke:#333,stroke-width:2px, color:#000
 
+```
