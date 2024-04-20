@@ -1,7 +1,7 @@
 ### Photo Upload Process
 <br>
 
-::: mermaid
+```mermaid
 
 sequenceDiagram
     participant U as User
@@ -34,3 +34,4 @@ sequenceDiagram
     DB->>-B: Confirm update
     B->>-F: Update result
     F->>U: Display updated labels and captions
+```
