@@ -1,0 +1,471 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@media (max-width: 768px) {
+    .photo-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Smaller min width for smaller devices */
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Even smaller for very small screens */
+        gap: 10px; /* Smaller gap */
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.toolbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    background-color: #73C79D;
+    padding: 1% 0;
+    box-sizing: border-box;
+    z-index: 100; /* Ensure it's above other content */
+    position: sticky;
+    box-shadow: #FFF0DA 0px 0px 05px; /* Add a subtle shadow */
+    border-color: #FFF0DA;
+    border-radius: 1px 1px 1px 1px; /* Rounded corners on top and bottom toolbars */
+}
+
+/* Specific to the PlanningBar at the top */
+.toolbar-top {
+    position: sticky;
+    top: 0; /* Stick PlanningBar to the top */
+}
+
+/* Specific to the ManagementBar at the bottom */
+.toolbar-bottom {
+    position: sticky;
+     /* Stick ManagementBar to the bottom */
+}
+
+/* Adjustments for toolbar buttons */
+.toolbar-button {
+    flex-grow: 1;
+    margin: 0 5px;
+    background-color: transparent;
+    color: white;
+    padding: 1%;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.toolbar-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.toolbar-button:first-child {
+    margin-left: 2%;
+}
+
+.toolbar-button:last-child {
+    margin-right: 3%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #E6E7ED ;
+    overflow: hidden;
+    max-width: 100vw;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    position: relative;
+    width: 90%;
+    max-width: 90%;
+    height: auto;
+    background: rgba(255, 255, 255, .15);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, .37);
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    margin: auto;
+}
+
+h2 {
+    font-size: 2em;
+    color: #A56C3F;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1em;
+    color: #A56C3F;
+    text-align: center;
+
+}
+
+/* Input box styles */
+
+.input-box {
+    position:relative;
+    width: 320px;
+    margin: 30px 0;
+    border-bottom: 2px solid #fff;
+}
+
+.input-box-gallery input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border-radius: 20px; /* This creates the rounded corners */
+    border: 1px solid #ccc; /* Example border styling */
+    outline: none; /* Removes the default focus outline */
+}
+
+.input-box-gallery input, .input-box-gallery label {
+    width: 100%; /* Ensure labels and inputs take up the full width of their container */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    margin: 5px 0; /* Minimal margin for a tighter layout */
+}
+
+.input-box-gallery input:focus {
+    border-color: #007bff; /* Colour of the box highlights when user selects a box in the photo gallery */
+}
+
+.labels-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px; /* Space between labels */
+    justify-content: center;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    pointer-events: none;
+    color: #fff;
+    transition: .5s;
+    padding: 0 35px 0 5px;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+    top: -5px;
+    left: 5px;
+    color: #fff;
+    font-size: .8em;
+}
+
+.input-box input {
+    width: 100%; /* Make input fill the width of the .input-box */
+    margin: 0; /* Ensure no default margins are applied */
+    padding: 8px; /* Sufficient for touch targets without being too bulky */
+    box-sizing: border-box; /* Padding doesn't add to the width */
+    border:#1f1f47;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    color: #fff;
+    font-size: 1.2em;
+    line-height: 57px;
+}
+
+/* Remember me and Forgot password styles */
+
+.remember-forgot {
+    margin: -15px 0 15px;
+    font-size: .9em;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.remember-forgot label input {
+    accent-color: #5c9df1;
+    margin-right: 3px;
+}
+
+button {
+    width: 100%;
+    height: 45px;
+    background: #A56C3F;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #A56C3F;
+    font-weight: 500;
+}
+
+.register-link {
+    font-size: .9em;
+    text-align: center;
+    color: #fff;
+    margin: 25px 0 10px;
+}
+
+.register-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
+
+.blob {
+    position: absolute;
+    top: 50%; /* Center the blob vertically */
+    left: 50%; /* Center the blob horizontally */
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(180deg, rgba(47, 184, 255, .42) 31.77%, #5c9df1 100%);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+    transition: 1s cubic-bezier(.07, .8, .16, 1);
+    animation: animateBlob 20s infinite alternate;
+}
+
+@keyframes animateBlob {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1) rotate(-90deg);
+        background: linear-gradient(180deg, rgba(47, 184, 255, .42) 31.77%, #73C79D 100%);
+    }
+    50% {
+        transform: translate(50%, -50%) scale(1.5) rotate(90deg);
+        background: linear-gradient(180deg, rgba(250, 112, 154, .6) 40%, #73C79D 100%);
+    }
+}
+
+.blob:hover {
+    width: 520px;
+    height: 520px;
+    filter: blur(30px);
+    box-shadow:
+        0 0 0 5px rgba(255, 255, 255, .6),
+        inset 100px 100px 0 0 #fa709a,
+        inset 200px 200px 0 0 #784ba8,
+        inset 300px 300px 0 0 #2b86c5;
+}
+.image-wrapper {
+    width: 232px;
+    max-width: 100%;
+    height: 225px;
+    border: 2px solid black; /* Moved border style here */
+    margin-bottom: 20px;
+}
+
+.rounded-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px; /* Adjust this value to control the roundness */
+}
+
+/* Home container styles */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Content area styles */
+.content-area {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.wrappergallery {
+    width: 100%; /* Full width to utilize the available space */
+    max-width: 400px; /* Maximum width limit */
+    margin: 1% auto; /* Center the gallery and add vertical spacing */
+    padding: 10px; /* Uniform padding */
+    background: rgba(255, 255, 255, .15);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, .37);
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 20px;
+    overflow-y: auto; /* Enable vertical scrolling within the gallery */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Adjust height dynamically based on the viewport and other elements */
+    max-height: calc(100vh - 370px); /* Example calculation, adjust as needed */
+}
+
+
+/* Controls the image of your partner */
+.image-container {
+    width: 232px;
+    max-width: 100%;
+    height: 245px;
+    border: 2px solid black;
+    border-radius: 6.2%;
+}
+
+.image-container img {
+    max-width: 100%; /* Ensure image is responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+  }
+
+/* controls the couple image styles */
+.featured-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 20%; /* Adjust for rounded corners */
+}
+
+/* Button wrapper styles */
+.button-wrapper {
+    padding: 10px 20px; /* Adjusted for the button, moved from inline styles */
+}
+
+/* Navigation button styles */
+.navigation-button {
+    padding: 10px 20px;
+    /* Add more button styles as needed */
+}
+
+/* Navigation container styles */
+.navigation-container {
+    cursor: pointer;
+    padding: 20px;
+    border: 2px solid black;
+    text-align: center;
+    margin-bottom: 20px; /* For spacing between items */
+}
+
+/* Statistics widget styles */
+.statistics-widget {
+    width: 100%;
+    max-width: 232px;
+    height: 225px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    margin-bottom: 20px; /* For spacing */
+}
+
+/* search filter and label drop down styles */
+
+.search-filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4%; /* Reduced padding */
+    margin-bottom: 3%; /* Reduced bottom margin to bring it closer to the gallery */
+    max-width: 800px; /* Adjust based on your layout */
+    margin: 0 auto; /* Keeps it centered */
+}
+
+.search-filter-container input,
+.search-filter-container select {
+    flex: 1; /* Make both controls flexible in size */
+    margin: 0 0; /* Space them out a bit */
+    padding: 8px; /* Comfortable padding */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust based on minimum item size */
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+    overflow-y: auto; /* Allows vertical scrolling */
+}
+
+.photo-album-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Use the full height of the viewport */
+    justify-content: space-between; /* Space out the content */
+    overflow-y: auto; /* Allows scrolling within the container */
+}
+
+.content-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+.photo-gallery-wrapper {
+    flex: 1;
+    overflow-y: auto; /* Scrollable, only if needed */
+    padding: 20px; /* Optional padding */
+}
+
+
+.photo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-item img {
+    width: 100%; /* Makes image fill the container width, maintaining aspect ratio */
+    height: auto; /* Adjust height automatically */
+    aspect-ratio: 1 / 1; /* Ensures the images are square */
+    object-fit: cover; /* Ensures the image covers the area, might crop if necessary */
+}
+.upload-button {
+    margin-top: 10px;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center children */
+    padding: 20px; /* Add some padding */
+    gap: 20px; /* Space between children */
+  }
